@@ -24,7 +24,7 @@ jobs:
           url: "https://assets.eggplantsoftware.com/EggplantRunner/eggplant-runner-Windows-25.3.0+.exe"
           target: ${{ runner.temp }}/test/
 
-      - run: which bash
+      - run: "C:/Program Files/Git/bin/bash.exe" 
 
       - run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
 
