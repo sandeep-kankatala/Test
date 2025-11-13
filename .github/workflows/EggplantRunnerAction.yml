@@ -2,30 +2,33 @@ name: CI
  
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
   push:
-    branches:
-      - main
- 
+    branches: [main]
+
 jobs:
   Run-Test-Configuration:
+    runs-on: [self-hosted]
     strategy:
       max-parallel: 1
-      #matrix:
-       #os: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: [self-hosted]
+
+    # Set default shell for all steps in this job
+    defaults:
+      run:
+        shell: bash
+
     name: Run Test Configuration
  
     steps:
       - uses: suisei-cn/actions-download-file@v1.0.1
-        id: downloadfile  # Remember to give an ID if you need the output filename
+        id: downloadfile
         name: Download the file
         with:
           url: "https://assets.eggplantsoftware.com/EggplantRunner/eggplant-runner-Windows-25.3.1+1.exe"
           target: ${{ runner.temp }}/test/
  
       - run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
+
       - name: Eggplant Runner
         uses: keysight-eggplant/eggplant-github-action@v1.0.19
         with:
