@@ -15,9 +15,9 @@ jobs:
 
     # Set default shell for all steps in this job
     defaults:
-       run:
-         shell: >
-           "C:/Program Files/Git/bin/bash.exe" --noprofile --norc
+      run:
+        shell: pwsh
+
 
 
     name: Run Test Configuration
