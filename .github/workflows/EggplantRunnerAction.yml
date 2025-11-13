@@ -16,7 +16,7 @@ jobs:
     # Set default shell for all steps in this job
     defaults:
       run:
-        shell: pwsh
+        shell: powershell.exe
 
 
 
