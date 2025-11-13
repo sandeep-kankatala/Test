@@ -18,7 +18,7 @@ jobs:
     steps:
       # Step 1: Simple debug
       - name: Debug trigger & runner OS
-        shell: pwsh
+        shell: powershell
         run: |
           Write-Host "Trigger event: $($env:GITHUB_EVENT_NAME)"
           Write-Host "Runner OS: $($env:RUNNER_OS)"
