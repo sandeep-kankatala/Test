@@ -1,28 +1,29 @@
 name: CI
-
-
+ 
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
   push:
-    branches: [main]
-
+    branches:
+      - main
+ 
 jobs:
   Run-Test-Configuration:
-    runs-on: [self-hosted]
     strategy:
       max-parallel: 1
-
-    # Set default shell for all steps in this job
-    defaults:
-      run:
-        shell: powershell
-
-
-
+    runs-on: self-hosted
     name: Run Test Configuration
  
     steps:
+      # Step 1: Simple debug
+      - name: Debug trigger & runner OS
+        shell: pwsh
+        run: |
+          Write-Host "Trigger event: $($env:GITHUB_EVENT_NAME)"
+          Write-Host "Runner OS: $($env:RUNNER_OS)"
+          Write-Host "Runner Temp Dir: $($env:RUNNER_TEMP)"
+
       - uses: suisei-cn/actions-download-file@v1.0.1
         id: downloadfile
         name: Download the file
