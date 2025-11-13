@@ -14,8 +14,10 @@ jobs:
 
     # Set default shell for all steps in this job
     defaults:
-      run:
-        shell: "C:/Program Files/Git/bin/bash.exe --noprofile --norc"
+       run:
+         shell: >
+           "C:/Program Files/Git/bin/bash.exe" --noprofile --norc
+
 
     name: Run Test Configuration
  
