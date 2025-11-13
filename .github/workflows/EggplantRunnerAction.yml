@@ -10,27 +10,19 @@ on:
  
 jobs:
   Run-Test-Configuration:
-    strategy:
-      max-parallel: 1
     runs-on: self-hosted
     name: Run Test Configuration
+    strategy:
+      max-parallel: 1
  
     steps:
-      # Step 1: Simple debug
-      - name: Debug trigger & runner OS
-        shell: powershell
+      # Step 1: Debug runner & event
+      - name: Debug trigger & runner info
+        shell: cmd
         run: |
-          Write-Host "Trigger event: $($env:GITHUB_EVENT_NAME)"
-          Write-Host "Runner OS: $($env:RUNNER_OS)"
-          Write-Host "Runner Temp Dir: $($env:RUNNER_TEMP)"
-
-      - uses: suisei-cn/actions-download-file@v1.0.1
-        id: downloadfile
-        name: Download the file
-        with:
-          url: "https://assets.eggplantsoftware.com/EggplantRunner/eggplant-runner-Windows-25.3.1+1.exe"
-          target: ${{ runner.temp }}/test/
- 
+          echo Trigger event: %GITHUB_EVENT_NAME%
+          echo Runner OS: %RUNNER_OS%
+          echo Runner Temp Dir: %RUNNER_TEMP%
       - run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
 
       - name: Eggplant Runner
