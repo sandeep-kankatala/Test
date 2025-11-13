@@ -30,7 +30,7 @@ jobs:
           url: "https://assets.eggplantsoftware.com/EggplantRunner/eggplant-runner-Windows-25.3.1+1.exe"
           target: ${{ runner.temp }}/test/
  
-      - run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
+      #- run: echo "Trigger event.. ${{ github.event_name }}. Runner OS.. ${{ runner.os }}."
 
       - name: Eggplant Runner
         uses: keysight-eggplant/eggplant-github-action@v1.0.19
