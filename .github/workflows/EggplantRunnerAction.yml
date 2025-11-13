@@ -12,9 +12,9 @@ jobs:
   Run-Test-Configuration:
     strategy:
       max-parallel: 1
-      matrix:
-       os: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: ${{ matrix.os }}, [self-hosted]
+      #matrix:
+       #os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: [self-hosted]
     name: Run Test Configuration
  
     steps:
